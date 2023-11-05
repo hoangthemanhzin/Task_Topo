@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Topology_1</title>
+        <link rel="stylesheet" href="topo_1.css">
+    </head>
+
+    <body>
+        <!--Khoi dau tien-->
+        <div class="first">
+            <div class="UPF"><h2>UPF</h2></div>
+            <div class="edge"><h2>edge_1</h2></div>
+            <div class="N"><h2>N9_2</h2></div>
+        </div>
+
+        <!--Khoi o giua-->
+        <div class="second">
+            <!--ben trai-->
+            <div class="sc_l">
+                <div class="gnb g1"><h2>gnb</h2></div>
+                <div class="gnb g2"><h2>gnb</h2></div>
+                <div class="gnb g3"><h2>gnb</h2></div>
+                <div class="gnb g4"><h2>gnb</h2></div>
+            </div>
+            <!--giua-->
+            <div class="sc_md">
+                <div class="N N3_1"><h2>N3_1</h2></div>
+                <div class="N N3_2"><h2>N3_2</h2></div>
+                <div class="UPF U1"><h2>UPF</h2></div>
+                <div class="UPF U2"><h2>UPF</h2></div>
+                <div class="N N9_1"><h2>N9_1</h2></div>
+            </div>
+            <!--ben phai-->
+            <div class="sc_r">
+                <div class="UPF U1"><h2>UPF</h2></div>
+                <div class="UPF U2"><h2>UPF</h2></div>
+                <div class="internet"><h2>internet</h2></div>
+            </div>
+        </div>
+
+        <!--Khoi ben phai-->
+        <div class="third">
+            <div class="N"><h2>N9_3</h2></div>
+            <div class="UPF"><h2>UPF</h2></div>
+            <div class="edge"><h2>edge_2</h2></div>
+        </div>
+
+        <!--Ve duong noi-->
+    
+        <canvas id="myCanvas1" width="800" height="600"></canvas>
+        <script>
+            // Lấy đối tượng Canvas
+            var canvas = document.getElementById('myCanvas1');
+ 
+            // Chọn đối tượng vẽ 2D
+            var context = canvas.getContext('2d');
+
+            // Khoi thu nhat
+            // Duong 1
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(361, 33);     // Điểm bắt đầu
+            context.lineTo(457, 33);   // Điểm kết thúc
+            context.stroke();           // Tiến hành vẽ
+            // Duong 2
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(329, 53);     // Điểm bắt đầu
+            context.lineTo(329, 90);   // Điểm kết thúc
+            context.stroke(); 
+            // Duong 3
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(329, 168);     // Điểm bắt đầu
+            context.lineTo(329, 220);   // Điểm kết thúc
+            context.stroke();  
+
+            // Khoi thu hai
+            // Duong 4
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(55, 218);     // Điểm bắt đầu
+            context.lineTo(135, 239);   // Điểm kết thúc
+            context.stroke(); 
+            // Duong 5
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(55, 270);     // Điểm bắt đầu
+            context.lineTo(135, 239);   // Điểm kết thúc
+            context.stroke();
+            //Duong 6
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(55, 315);     // Điểm bắt đầu
+            context.lineTo(135, 336);   // Điểm kết thúc
+            context.stroke();
+            //Duong 7
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(55, 367);     // Điểm bắt đầu
+            context.lineTo(135, 336);   // Điểm kết thúc
+            context.stroke(); 
+            //Duong 8
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(212, 239);     // Điểm bắt đầu
+            context.lineTo(303, 239);   // Điểm kết thúc
+            context.stroke(); 
+            //Duong 9
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(212, 336);     // Điểm bắt đầu
+            context.lineTo(303, 336);   // Điểm kết thúc
+            context.stroke();
+            //Duong 10
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(194, 271);     // Điểm bắt đầu
+            context.lineTo(303, 336);   // Điểm kết thúc
+            context.stroke(); 
+            //Duong 11 
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(193, 304);     // Điểm bắt đầu
+            context.lineTo(303, 239);   // Điểm kết thúc
+            context.stroke();
+            //Duong 12
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(360, 239);     // Điểm bắt đầu
+            context.lineTo(410, 299);   // Điểm kết thúc
+            context.stroke();
+            //Duong 13
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(360, 339);     // Điểm bắt đầu
+            context.lineTo(410, 299);   // Điểm kết thúc
+            context.stroke();
+            //Duong 14
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(488, 299);     // Điểm bắt đầu
+            context.lineTo(548, 239);   // Điểm kết thúc
+            context.stroke();
+            //Duong 15
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(488, 299);     // Điểm bắt đầu
+            context.lineTo(548, 339);   // Điểm kết thúc
+            context.stroke();
+            //Duong 16
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(605, 239);     // Điểm bắt đầu
+            context.lineTo(670, 299);   // Điểm kết thúc
+            context.stroke();
+            //Duong 17
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(605, 339);     // Điểm bắt đầu
+            context.lineTo(670, 299);   // Điểm kết thúc
+            context.stroke();
+
+            //Khoi thu ba
+            // Duong 18
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(361, 540);     // Điểm bắt đầu
+            context.lineTo(457, 540);   // Điểm kết thúc
+            context.stroke();           // Tiến hành vẽ
+            // Duong 19
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(329, 488);     // Điểm bắt đầu
+            context.lineTo(329, 522);   // Điểm kết thúc
+            context.stroke(); 
+            // Duong 20
+            context.beginPath();        // Khai báo vẽ đường thẳng mới
+            context.moveTo(329, 410);     // Điểm bắt đầu
+            context.lineTo(329, 358);   // Điểm kết thúc
+            context.stroke();  
+        </script>
+    </body>
+</html>
