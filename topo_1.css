@@ -1,0 +1,132 @@
+.UPF {
+    width: 60px;
+    height: 40px;
+    background: white;
+    text-align: center ;
+    border-style:groove;
+    border-color: black;
+    box-sizing: border-box;
+}
+
+.gnb {
+    width: 50px;
+    height: 40px;
+    background: white;
+    text-align: center;
+    border-style: groove;
+    border-color: black;
+    box-sizing: border-box;
+    margin: 10px;
+    position: relative;
+    top: 200px;
+    left: 30%;
+}
+
+.N {
+    width: 80px;
+	height: 80px;
+	background: bisque;
+	border-radius: 50%;
+    display: flex;
+}
+h2 {
+    margin: auto;
+}
+.edge {
+    width: 80px;
+	height: 80px;
+	background: grey;
+	border-radius: 50%;
+    display: flex;
+}
+.internet {
+    width: 80px;
+	height: 80px;
+	background: grey;
+	border-radius: 50%;
+    display: flex;
+}
+
+.first .UPF {
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    left: 50%;
+    right: 50%
+}
+.first .edge {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 60%;
+    right: 40%
+}
+.first .N {
+    position: absolute;
+    top: 100px;
+    bottom: 0px;
+    left: 49%;
+    right: 49%
+}
+
+.N3_1 {
+    position: absolute;
+    top: 210px;
+    left: 600px;
+}
+.N3_2 {
+    position: absolute;
+    top: 310px;
+    left: 600px;
+}
+.sc_md .U1 {
+    position: absolute;
+    top:230px;
+    left: 50%;
+}
+.sc_md .U2 {
+    position: absolute;
+    top: 330px;
+    left: 50%;
+}
+.N.N9_1 {
+    position: absolute;
+    top: 270px;
+    left:57%;
+}
+.sc_r .U1 {
+    position: absolute;
+    top: 230px;
+    left: 66%;
+}
+.sc_r .U2 {
+    position: absolute;
+    top: 330px;
+    left: 66%;
+}
+.internet {
+    position: absolute;
+    top: 270px;
+    left: 74%;
+}
+.third .N {
+    position: absolute;
+    top: 420px;
+    left: 49%;
+}
+.third .UPF {
+    position: absolute;
+    top: 530px;
+    left: 50%;
+} 
+.third .edge {
+    position: absolute;
+    top: 515px;
+    left: 60%;
+    right: 40%;
+}  
+#myCanvas1 {
+    position: absolute;
+    top: 10px;
+    left: 467px;
+}
