@@ -1,0 +1,33 @@
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.link {
+    fill: none;
+    stroke: #bbb;
+    stroke-width: 1.5px;
+}
+
+.internet {
+    fill: lightblue;
+}
+
+.upf {
+    fill: beige;
+}
+
+.an {
+    fill: lightgreen;
+}
+
+.upf-rect {
+    fill: #f0f0f0;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.text-label {
+    font-size: 12px;
+    text-anchor: middle;
+}
