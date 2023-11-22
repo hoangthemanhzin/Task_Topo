@@ -1,0 +1,83 @@
+\begin{tikzpicture}[every node/.style={font={\footnotesize}}, box/.style={rectangle,draw, inner sep=2pt}, pod/.style={box, minimum width=1cm, minimum height=1cm, fill=black!10}, nf/.style={box, minimum width=0.8cm, minimum height=0.8cm, fill=white}, agent/.style={box, minimum width=0.7cm, minimum height=0.4cm,fill=black!20,font={\tiny},inner sep=0}]
+\node[pod] at (0,0) (ap2) {};
+\node[pod] at ([xshift=2pt,yshift=-2pt]ap2) (ap1) {};
+
+\node[pod,below] at ([yshift=-1cm]ap1.south) (sp2) {};
+
+\node[pod,left] at ([xshift=-2.5cm,yshift=4pt]sp2) (sp4) {};
+\node[pod] at ([xshift=2pt,yshift=-2pt]sp4) (sp3) {};
+\node[pod] at ([xshift=2pt,yshift=-2pt]sp3) (sp1) {};
+
+
+
+\node[box,left] at ([xshift=-1cm]ap1.west) (gnb) {gnB};
+\node[cloud, draw, left, inner sep=0, aspect=2.5,cloud puffs=16, minimum width=2cm, minimum height=1cm] at ([xshift=-1cm, yshift=0.5cm]gnb.west) (c1) {};
+\node[cloud, draw, left, inner sep=0, aspect=2.5,cloud puffs=16, minimum width=2cm, minimum height=1cm, fill=black!5] at ([xshift=-1cm, yshift=-0.5cm]gnb.west) (c2) {};
+\node at (c1) {\tiny UE normal group};
+\node at (c2) {\tiny UE test group};
+\node[nf] at (ap1) (amf) {};
+\node[nf] at (sp1) (smf1) {};
+\node[nf] at (sp2) (smf2) {};
+\node[below] at (amf.north) {AMF};
+\node[above] at (smf1.south) {SMF};
+\node[above] at (smf2.south) {SMF};
+\node[above,agent] at ([yshift=1pt]amf.south) (ag1) {agent};
+\node[below,agent] at ([yshift=-1pt]smf1.north) (ag2) {agent};
+\node[below,agent] at ([yshift=-1pt]smf2.north) (ag3) {agent};
+\draw[dashed, ->] (c1.east) to[out=0,in=180] (gnb) to[out=0,in=180] ([yshift=1pt]ap1.west);
+\draw[thick, ->] (c2.east) to[out=0,in=180] (gnb) to[out=0,in=180] ([yshift=-1pt]ap1.west);
+\draw[dashed, ->] ([xshift=-2pt]ag1.south) to[out=-90,in=0] ([yshift=-0.5cm]gnb.south) to[out=180,in=90]  ([xshift=-2pt]ag2.north);
+\draw[thick, ->] ([xshift=2pt]ag1.south) to[out=-90,in=0] ([yshift=-0.6cm]gnb.south) to[out=180,in=90] node[pos=0.5,below,xshift=5pt] {\tiny 90\%} ([xshift=2pt]ag2.north);
+\draw[thick, ->] ([xshift=2pt]ag1.south) to[out=-90,in=90] node[pos=0.7,left] {\tiny 10\%} ([xshift=2pt]ag3.north);
+
+\node[draw, dotted, below, text width=2cm] at ([yshift=-2pt]sp1.south) (l1) {\tiny \begin{verbatim} 
+"label": {
+  "app": "b5g",
+  "nf": "smf",
+  "slice": "1-112233",
+  "version": "v1"
+  },
+"image: "etrib5gc-1.1"
+\end{verbatim}};
+
+\node[draw, dotted, below, text width=2cm] at ([yshift=-2pt]sp2.south) (l2) {\tiny \begin{verbatim}
+"label": {
+  "app": "b5g",
+  "nf": "smf",
+  "slice": "1-112233",
+  "version": "v2"
+  }
+"image: "etrib5gc-1.2"
+\end{verbatim}};
+
+\node[draw,dotted, right, text width=4cm] at ([xshift=1cm,yshift=-1.9cm]ap1.east) (l3) {\tiny \begin{verbatim} 
+  "service": {
+    "name": "/803-22/smf/1-112233",
+    "selector": {
+      "app": "b5g",
+      "nf": "smf",
+      "slice": "1-112233"
+    },
+    "routes": [{
+      "match": {"usertype": "tester"},
+      "destinations": [{
+          "weight": 90,
+          "selector": {"version": "v1"}
+        },{
+          "weight": 10
+          "selector": {"version": "v2"}
+        }
+      ]},{
+      "match": {},   
+      "destinations": [
+        {"selector": { "version": "v1" }}
+      ]
+    }]
+  }
+\end{verbatim}};
+
+\node [below] at (l1.north) {\tiny \textit{deployment 1}};
+\node [below] at (l2.north) {\tiny \textit{deployment 2}};
+\node [below] at (l3.north) {\tiny \textit{SMF service}};
+
+\end{tikzpicture}

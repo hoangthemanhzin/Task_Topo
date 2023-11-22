@@ -1,0 +1,21 @@
+# LocationEventAnyOf
+
+## Enum
+
+
+* `EMERGENCY_CALL_ORIGINATION` (value: `"EMERGENCY_CALL_ORIGINATION"`)
+
+* `EMERGENCY_CALL_RELEASE` (value: `"EMERGENCY_CALL_RELEASE"`)
+
+* `EMERGENCY_CALL_HANDOVER` (value: `"EMERGENCY_CALL_HANDOVER"`)
+
+* `ACTIVATION_OF_DEFERRED_LOCATION` (value: `"ACTIVATION_OF_DEFERRED_LOCATION"`)
+
+* `UE_MOBILITY_FOR_DEFERRED_LOCATION` (value: `"UE_MOBILITY_FOR_DEFERRED_LOCATION"`)
+
+* `CANCELLATION_OF_DEFERRED_LOCATION` (value: `"CANCELLATION_OF_DEFERRED_LOCATION"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -1,0 +1,32 @@
+{
+	"plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+	"amflist":[],
+	"dnn":"internet",
+	"slice": {
+		"sst" : 1,
+		"sd": "010203"
+	},
+	"mesh": {
+		"sbi": {
+			"port": 9501
+		},
+		"registry": {
+			"agent": {
+				"port": 7501
+			},
+			"controller": {
+				"ip": "127.0.0.1"
+			}
+		},
+		"labels": {
+			"app":"b5gc",
+			"nf": "smf",
+			"slice": "1-010203",
+			"region":"daejeon",
+			"version": "v2"
+		}
+	}
+}

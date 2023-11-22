@@ -1,0 +1,171 @@
+{
+  "addr": {
+    "ip" : "",
+	"port":8888
+  },
+  "heartbeat": 5000,
+  "services": [
+	{
+      "id": "upmf.208-93",
+      "selectors": {
+        "nf": "upmf"
+      }
+    },
+
+    {
+      "id": "pran.208-93.daejeon",
+      "selectors": {
+        "nf": "pran",
+        "tac": "001"
+      }
+    },
+    {
+      "id": "pran.208-93.seoul",
+      "selectors": {
+        "nf": "pran",
+        "tac": "002"
+      }
+    },
+    {
+      "id": "damf.208-93.daejeon",
+      "selectors": {
+        "nf": "damf",
+		"region":"daejeon"
+      }
+    },
+    {
+      "id": "udm.208-93",
+      "selectors": {
+        "nf": "udm"
+      }
+    },
+    {
+      "id": "udr.208-93",
+      "selectors": {
+        "nf": "udr"
+      }
+    },
+    {
+      "id": "ausf.208-93",
+      "selectors": {
+        "nf": "ausf"
+      }
+    },
+    {
+      "id": "pcf.208-93",
+      "selectors": {
+        "nf": "pcf"
+      }
+    },
+    {
+      "id": "amf.208-93.112233",
+      "selectors": {
+        "nf": "amf",
+        "amfid": "112233"
+      }
+    },
+    {
+      "id": "amf.208-93.332211",
+      "selectors": {
+        "nf": "amf",
+        "amfid": "332211"
+      }
+    },
+    {
+      "id": "smf.208-93.2-030201",
+      "selectors": {
+        "nf": "smf",
+        "slice": "2-030201"
+      },
+	  "groups":{
+		  "v1": {
+			  "selectors": {
+				  "version": "v1"
+			  }
+		  },
+		  "v2": {
+			  "selectors": {
+				  "version": "v2"
+			  }
+		  }
+	  },
+	  "routes":[{
+		  "match":{
+			  "headers":{
+				  "usertype":"tester"
+			  }
+		  },
+		  "destinations":[
+			{
+				"group": "v1",
+				"weight":90,
+				"lb": 0
+			},
+			{
+				"group": "v2",
+				"weight":10,
+				"lb": 0
+			}
+		  ]
+	  },
+	  {
+		  "match":{},
+		  "destinations":[
+			  {
+				  "group":"v1",
+				  "lb":0
+			  }
+		  ]
+	  }
+	  ]
+    },
+    {
+      "id": "smf.208-93.1-010203",
+      "selectors": {
+        "nf": "smf",
+        "slice": "1-010203"
+      },
+	  "groups":{
+		  "v1": {
+			  "selectors": {
+				  "version": "v1"
+			  }
+		  },
+		  "v2": {
+			  "selectors": {
+				  "version": "v2"
+			  }
+		  }
+	  },
+	  "routes":[{
+		  "match":{
+			  "headers":{
+				  "usertype":"tester"
+			  }
+		  },
+		  "destinations":[
+			{
+				"group": "v1",
+				"weight":90,
+				"lb": 0
+			},
+			{
+				"group": "v2",
+				"weight":10,
+				"lb": 0
+			}
+		  ]
+	  },
+	  {
+		  "match":{},
+		  "destinations":[
+			  {
+				  "group":"v1",
+				  "lb":0
+			  }
+		  ]
+	  }
+	]
+	}
+ ]
+}

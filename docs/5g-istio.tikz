@@ -1,0 +1,42 @@
+
+\begin{tikzpicture}[box/.style={rectangle,draw}, pod/.style={box,minimum width=3cm,minimum height=3.9cm,fill=black!30},nf/.style={box,minimum width=2.8cm,minimum height=1.7cm,fill=white},sc/.style={box,minimum width=2.8cm,minimum height=1.3cm,fill=white}, mod/.style={rectangle, draw, minimum width=2.5cm, minimum height=0.5cm, inner sep=1pt,font={\footnotesize}}]
+
+\def\x{0.5cm}
+\def\y{3pt}
+\node[pod] at (0,0) (p1) {};
+\node[pod,right] at ([xshift=\x]p1.east) (p2) {};
+\node[pod,right] at ([xshift=\x]p2.east) (p3) {};
+\node[pod] at ([xshift=-6pt,yshift=6pt]p3)  {};
+\node[pod] at ([xshift=-3pt,yshift=3pt]p3)  {};
+\node[pod] at (p3)  {};
+
+\node[nf,below] at ([yshift=-2*\y]p1.north) (amf) {};
+\node[nf,below] at ([yshift=-2*\y]p2.north) (nrf) {};
+\node[nf,below] at ([yshift=-2*\y]p3.north) (smf) {};
+
+\node[sc,below] at ([yshift=-2*\y]amf.south) (sc1) {};
+\node[sc,below] at ([yshift=-2*\y]nrf.south) (sc2) {};
+\node[sc,below] at ([yshift=-2*\y]smf.south) (sc3) {};
+
+
+\node[mod,below] at ([yshift=-4*\y]amf.north) (b1) {Business Logic};
+\node[mod,below] at ([yshift=-4*\y]nrf.north) (b2) {Business Logic};
+\node[mod,below] at ([yshift=-4*\y]smf.north) (b3) {Business Logic};
+
+\node[mod,below,fill=black!10] at ([yshift=-\y]b1.south) {Nf selection};
+\node[mod,below,fill=black!10] at ([yshift=-\y]b2.south) {Nf management};
+\node[mod,below,fill=black!10] at ([yshift=-\y]b3.south) {Nf selection};
+
+\foreach \i in {1,2,3}{
+	\node[draw,fill=black!40,below] at ([yshift=-15pt,xshift=-10pt]sc\i.north) {\footnotesize Routing};
+	\node[below] at ([xshift=2*\x]sc\i.north west) {\footnotesize sidecar proxy};
+	\node[above] at ([xshift=\x]p\i.south west) {\footnotesize POD};
+	\coordinate (c\i) at ([xshift=-5pt]b\i.south east);
+}
+\node[below] at (amf.north) {\footnotesize AMF};
+\node[below] at (nrf.north) {\footnotesize NRF};
+\node[below] at (smf.north) {\footnotesize SMF};
+
+\draw[<->] (c1) -- ++(0,-2cm) to[out=-90,in=-90] ([yshift=-2cm]c2) --(c2); 
+\draw[<->] ([xshift=-2pt]c1) -- ++(0,-2cm) to[out=-90,in=180] ([yshift=-10pt]p2.south east) to[out=0,in=-90]([yshift=-2cm]c3) --(c3); 
+\end{tikzpicture}

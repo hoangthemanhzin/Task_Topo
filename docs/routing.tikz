@@ -1,0 +1,30 @@
+\begin{tikzpicture}[every node/.style={inner sep=0pt, font={\tiny}},box/.style={rectangle,draw}, cl/.style={box,minimum width=3.3cm}, clheader/.style={inner sep=2pt,below,fill=black!10,minimum width=3.1cm}]
+
+ \node[cl, minimum height=1.5cm] at (0,0) (s1) {};
+ \node[clheader] at ([yshift=-1pt]s1.north) (h1) {Service};
+ \node[right] at ([yshift=-5pt]h1.south west) (att1-1) {\textit{name}: string};
+ \node[right] at ([yshift=-5pt]att1-1.south west) (att1-2) {\textit{routes}: []RouteRule};
+ \node[right] at ([yshift=-5pt]att1-2.south west) (att1-3) {\textit{selectors}: map[string]string};
+ 
+ \node[cl, below, minimum height=1.5cm] at ([yshift=-0.2cm]s1.south) (s2) {};
+ \node[clheader] at ([yshift=-1pt]s2.north) (h2) {RouteRule};
+ \node[right] at ([yshift=-5pt]h2.south west) (att2-1) {\textit{service}: string};
+ \node[right] at ([yshift=-5pt]att2-1.south west) (att2-2) {\textit{match}: map[string]string};
+ \node[right] at ([yshift=-5pt]att2-2.south west) (att2-3) {\textit{destinations}: []DestinationRule};
+
+ \node[cl, below, minimum height=1.7cm] at ([yshift=-0.2cm]s2.south) (s3) {};
+ \node[clheader] at ([yshift=-1pt]s3.north) (h3) {DestinationRule};
+ \node[right] at ([yshift=-5pt]h3.south west) (att3-1) {\textit{service}: string};
+ \node[right] at ([yshift=-5pt]att3-1.south west) (att3-2) {\textit{weight}: int};
+ \node[right] at ([yshift=-5pt]att3-2.south west) (att3-3) {\textit{loadbalancer}: enum};
+ \node[right] at ([yshift=-5pt]att3-3.south west) (att3-4) {\textit{selector}: map[string]string};
+  
+  \draw (att1-2.west) -- ++ (-0.3cm,0) |- (h2.west);
+  \draw (att2-3.west) -- ++ (-0.3cm,0) |- (h3.west);
+  
+ \node[box, minimum width=2cm,  minimum height= 2cm,right] at ([xshift=1cm]s2.east) (all) {};
+  \node[box, minimum width=2cm,  minimum height= 0.5cm,right, fill=black!20] at ([xshift=1cm, yshift=-5pt]s2.east) (dest) {Destination};
+  \node[below] at ([yshift=-5pt]all.north) {all instances};
+  \draw[->] (att1-3.east) to[out=0,in=90] ([yshift=-3pt]all.north);
+  \draw[->] (att3-4.east) to[out=0,in=180] ([xshift=5pt]dest.west);
+\end{tikzpicture}

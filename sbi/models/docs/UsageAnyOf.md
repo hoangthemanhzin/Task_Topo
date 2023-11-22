@@ -1,0 +1,19 @@
+# UsageAnyOf
+
+## Enum
+
+
+* `UNSUCCESS` (value: `"UNSUCCESS"`)
+
+* `SUCCESS_RESULTS_NOT_USED` (value: `"SUCCESS_RESULTS_NOT_USED"`)
+
+* `SUCCESS_RESULTS_USED_TO_VERIFY_LOCATION` (value: `"SUCCESS_RESULTS_USED_TO_VERIFY_LOCATION"`)
+
+* `SUCCESS_RESULTS_USED_TO_GENERATE_LOCATION` (value: `"SUCCESS_RESULTS_USED_TO_GENERATE_LOCATION"`)
+
+* `SUCCESS_METHOD_NOT_DETERMINED` (value: `"SUCCESS_METHOD_NOT_DETERMINED"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

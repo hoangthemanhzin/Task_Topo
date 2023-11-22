@@ -1,0 +1,35 @@
+\begin{tikzpicture}[every node/.style={font={\footnotesize}},box/.style={rectangle,draw,minimum height=2.5cm},cnode/.style={box,minimum width=3cm},mod/.style={rectangle,draw,fill=black!20, above,minimum width=2cm,inner sep=2pt}]
+	\node[box,minimum width=3.5cm, minimum height=2.5cm] at (0,0) (master) {};
+	\node[right] at ([xshift=2.5cm]master.east) (w) {};
+	\node[cnode,above] at ([yshift=5pt]w.north) (w1) {};
+	\node[cnode,below] at ([yshift=-5pt]w.south) (w2) {};
+	\node[below, inner sep=0] at (master.north) {master node};
+	
+	\node[draw,rotate=90,fill=black!20, inner sep=2pt] at ([xshift=-0.5cm]master.east) (api) {Api Server};	
+	\node[mod, left] at ([xshift=-15pt,yshift=2pt]api.north) (scheduler) {Scheduler};
+	\node[mod,above] at ([yshift=2pt]scheduler.north) (etcd) {Ectd};
+	\node[mod, below,minimum height=0.8cm] at ([yshift=-2pt]scheduler.south)
+	 (ctrl) {};
+	 \node[below] at (ctrl.north) {Controller};
+	 \node[above] at (ctrl.south) {Manager};
+	 \draw[<->] (etcd.east) -- (api);
+ 	 \draw[<->] (ctrl.east) -- (api);
+ 	 \draw[<->] (scheduler.east) -- (api);
+ 	 
+	\foreach \i in {1,2} {
+		\node[below, inner sep=0] at (w\i.north) {worker node};
+		\node[above,draw,inner sep=1pt,minimum height=12pt,fill=black!20, minimum width=1.2cm] at ([xshift=0.7cm,yshift=3pt]w\i.south west) (kl\i){kubelet};
+		\node[above,draw,inner sep=2pt,minimum height=12pt,fill=black!20] at ([xshift=-0.85cm,yshift=3pt]w\i.south east) (kp\i){kubeproxy};
+		\node[above,draw,inner sep=2pt,minimum height=10pt, minimum width=2.85cm] at ([yshift=17pt]w\i.south) (cr\i){container runtime};
+		\node[rectangle,draw,minimum width=1.4cm, minimum height=1cm,right,fill=black!5] at ([yshift=8pt,xshift=2pt]w\i.west) (pod\i1){};
+		\node[rectangle,draw,minimum width=1.4cm, minimum height=1cm,left,fill=black!5] at ([yshift=8pt,xshift=-2pt]w\i.east) (pod\i2){};
+		\foreach \j in {1,2} {
+			\node[below,inner sep=1pt] at (pod\i\j.north) {pod};
+			\node[draw,inner sep=1pt,above, minimum height=10pt] at ([xshift=-2pt,yshift=9pt]pod\i\j.south) {\tiny container};
+			\node[draw,inner sep=1pt,above, minimum height=10pt,fill=white] at ([yshift=7pt]pod\i\j.south) {\tiny container};
+			\node[draw,inner sep=1pt,above, minimum height=10pt,fill=white] at ([yshift=5pt,xshift=2pt]pod\i\j.south) {\tiny container};
+		}
+		
+		\draw[<->] (api.south) -- (kl\i.west);
+	}
+\end{tikzpicture}

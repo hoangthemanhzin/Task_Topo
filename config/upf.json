@@ -1,0 +1,24 @@
+{
+	"upfid" : "upf1",
+	"plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+	"sbiport": 9801,
+	"upmf": {
+		"ip": "127.0.0.1",
+		"port": 9800
+	},
+	"dnnlist": [{
+		"addr": "0.0.0.0",
+		"dnn": "internet",
+		"cidr": "10.60.0.0/24"
+	}],
+	"iflist":[{
+		"ip":"127.0.0.1",
+		"mtu":1400,
+		"type": "n3",
+		"name": "an1"
+	}]
+}
+

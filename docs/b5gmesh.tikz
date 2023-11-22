@@ -1,0 +1,38 @@
+\begin{tikzpicture}[every node/.style={font={\footnotesize},inner sep=2pt}, box/.style={rectangle, draw},pod/.style={box,fill=black!5, minimum width=1.7cm, minimum height=2cm}, con/.style={box,minimum width=1.6cm, minimum height=1.6cm, fill=white}, mod/.style={box, minimum width=1.5cm}]
+\node[box,fill=black!30, minimum width=4.5cm] at (0,0) (ctrl) {B5G Service Controller};
+\node[pod,above] at ([xshift=-0.5cm, yshift=1cm]ctrl.north) (pod1) {};
+\node[pod,left] at ([xshift=-0.5cm]pod1.west) (pod2) {};
+\node[pod,right] at ([xshift=1cm]pod1.east) (pod3) {};
+\node[right] at ([xshift=8pt]pod1.east) {\textbf{...}};
+\node[box,below, rounded corners=3pt] at ([xshift=0.1cm,yshift=-15pt]pod2.south) (kl1) {kubelet};
+\node[box,below, rounded corners=3pt] at ([xshift=-0.1cm,yshift=-15pt]pod3.south) (kl2) {kubelet};
+\draw[<->,thin, dotted] ([xshift=4pt]pod1.south west) to[out=-90,in=0] (kl1.east);
+\draw[<->,thin,dotted] ([xshift=4pt]pod2.south west) to[out=-90,in=180] (kl1.west);
+\draw[<->,thin,dotted] ([xshift=-4pt]pod3.south east) to[out=-90,in=0] (kl2.east);
+\node[box,below, minimum height=0.8cm] at ([xshift=-2cm, yshift=-0.8cm]ctrl.south) (k8c) {K8 Control Plane};
+\node[box,minimum height=0.8cm, minimum width=2.8cm, right] at ([xshift=0.5cm ]k8c.east) (orch) {};
+\node[below] at (orch.north) {B5G Orchestration};
+\node[above] at (orch.south) {\& Management};
+
+\draw[<->,thin,dotted] (kl1.south) -- (kl1.south |- k8c.north);
+\draw[<->,thin,dotted] ([xshift=-3pt]kl2.south east) to[out=-90,in=90] ([xshift=-10pt]k8c.north east);
+\draw[<->] (k8c.north) -- (k8c.north|-ctrl.south);
+\draw[<->] (orch.north) -- (orch.north|-ctrl.south);
+
+\foreach \i in {1,2,3} {
+	\node[con,above] at ([yshift=3pt]pod\i.south) (con\i) {};
+	\node[inner sep=1pt,below] at (pod\i.north) {pod};
+	\node[mod,above,fill=black!30] at ([yshift=2pt]con\i.south) (agent\i) {\tiny Agent};
+	\node[mod,above, minimum height=0.6cm] at ([yshift=8pt]agent\i.north) (bl\i) {};
+	\node[inner sep=1pt,above] at (bl\i.south) {\tiny Logic};
+	\node[inner sep=1pt,above] at ([yshift=8pt]bl\i.south) {\tiny Business};
+	\draw[<->] (bl\i) --(agent\i);
+	\draw[<->,dashed] (ctrl.north) -- ([xshift=-4pt]agent\i.south);
+	\node[below] at (con\i.north) {B5G NF};
+}
+
+\draw[<->,thick] ([xshift=6pt]agent2.south) -- ++(0,-10pt) -| ([xshift=6pt]agent3.south);
+\draw[<-,thick] ([xshift=6pt]agent1.south) -- ++(0,-10pt);
+
+\draw[<->] (k8c) -- (orch);
+\end{tikzpicture}

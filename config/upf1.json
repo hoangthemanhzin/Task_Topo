@@ -1,0 +1,26 @@
+{
+    "upfid" : "upf1",
+    "plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+    "slices": [
+        "slice1"
+    ],
+	"sbiport": 8805,
+	"upmf": {
+		"ip": "127.0.0.1",
+		"port": 9800
+	},
+	"dnnlist": [{
+		"addr": "192.168.10.200",
+		"dnn": "internet",
+		"cidr": "10.60.0.0/24"
+	}],
+	"iflist": [{
+        "ip":"192.168.56.102",
+        "mtu":1400,
+        "type": "n9",
+        "name": "tran"
+    }]
+}

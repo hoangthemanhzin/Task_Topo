@@ -1,0 +1,45 @@
+\begin{tikzpicture}[every node/.style={font={\footnotesize}, inner sep=2pt},mod/.style={rectangle,draw,minimum height=0.5cm,inner sep=2pt, fill=white}]
+
+\node[draw,minimum width=2.5cm, minimum height=2.2cm, fill=black!5] at (0,0) (dep1) {};
+\node[inner sep=1pt,below] at (dep1.north) {deployment 1};
+\node[mod,above] at ([yshift=3pt]dep1.south) (i1) {service instance};
+\node[mod,above] at ([yshift=3pt]i1.north) (i2) {service instance};
+\node[mod,above] at ([yshift=3pt]i2.north) (i3) {service instance};
+
+\node[draw,below,minimum width=2.5cm, minimum height=1.6cm, fill=black!15] at ([yshift=-5pt]dep1.south) (dep2) {};
+\node[inner sep=1pt,below] at (dep2.north) {deployment 2};
+\node[mod,above] at ([yshift=3pt]dep2.south) (i4) {service instance};
+\node[mod,above] at ([yshift=3pt]i4.north) (i5) {service instance};
+
+\node[mod,left] at ([xshift=-1cm]i1.west) (clusterip) {ClusterIp:Port};
+ 
+\node[mod,left] at ([xshift=-0.5cm]clusterip.west) (name) {Service-name:Port};
+
+\draw[<->] (name) -- (clusterip);
+\foreach \i in {1,2,3,4,5} {
+\draw[<->] (clusterip.east) -- (i\i.west);
+}
+\node[draw, dotted, right, text width=2cm] at ([xshift=5pt]dep1.east) (l1) {\tiny \begin{verbatim}
+"label": {
+  "app": "backend",
+  "version": "v1"
+  }
+"image: "backend-1.1"
+\end{verbatim}};
+\node[draw, dotted, right, text width=2cm] at ([xshift=5pt]dep2.east) (l2) {\tiny \begin{verbatim}
+"label": {
+  "app": "backend",
+  "version": "v2"
+  }
+"image: "backend-1.2"
+\end{verbatim}};
+
+\node[draw, dotted, below, text width=3cm] at ([yshift=-2pt]name.south east) (l3) {\tiny \begin{verbatim}
+"service": {
+  "name": "backend",
+  "clusterip": "10.10.100.2",
+  "port": "8080"
+  },
+"selector: {"app": "backend"}
+\end{verbatim}};
+\end{tikzpicture}

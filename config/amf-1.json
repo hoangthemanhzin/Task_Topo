@@ -1,0 +1,35 @@
+{
+	"plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+	"amfId": "332211",
+	"ranlist": [],
+	"slices": [{
+			"sst" : 1,
+			"sd": "010203"
+		},{
+			"sst" : 2,
+			"sd": "030201"
+		}
+	],
+	"mesh": {
+		"sbi": {
+			"port": 9101
+		},
+		"registry": {
+			"agent": {
+				"port": 7101
+			},
+			"controller": {
+				"ip": "127.0.0.1"
+			}
+		},
+		"labels": {
+			"app":"b5gc",
+			"nf": "amf",
+			"amfid":"223311"
+		}
+	}
+}
+

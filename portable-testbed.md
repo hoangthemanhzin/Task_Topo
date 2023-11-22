@@ -1,0 +1,5 @@
+Intel NUC 11 Pro Kit NUC11TNHi7 x 3ea
+RAM: samsung DDR4-3200 1.2v SO-DIMM 8G x 6ea
+SSD: 980 PRO M.2 NVMe 1T x3ea
+Router: EFM ipTIME T3008
+

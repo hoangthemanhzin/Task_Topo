@@ -1,0 +1,41 @@
+{
+	"plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+	"topo":{
+		"slices":{
+			"slice1": {
+				"sd": "12345",
+				"sst": 0
+			},
+			"slice2": {
+				"sd": "54321",
+				"sst": 1
+			}
+	
+		},
+		"networks":{ 
+			"access": ["an1", "an2"],
+			"transport": ["tran","tran2","tran3"],
+			"dnn": ["e1", "e2", "internet"]
+		}
+	},
+	"mesh": {
+		"sbi": {
+			"port": 9800
+		},
+		"registry": {
+			"agent": {
+				"port": 7800
+			},
+			"controller": {
+				"ip": "127.0.0.1"
+			}
+		},
+		"labels": {
+			"app":"b5gc",
+			"nf": "upmf"
+		}
+	}
+}

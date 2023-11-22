@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctrl-dep
+  labels:
+    app: b5gc
+    nf: controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: b5gc
+      nf: controller
+  template:
+    metadata:
+      labels:
+        app: b5gc
+        nf: controller
+    spec:
+      containers:
+        - name: b5gc-ctrl
+          image: b5gc-controller:latest
+          imagePullPolicy: IfNotPresent
+          command: ["./controller"]
+          args: ["-c", "controller.json"]
+          ports:
+            - containerPort: 8888
+          env:
+            - name: MY_POD_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.uid
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: b5gc-ctrl
+spec:
+  type: LoadBalancer
+  selector:
+    app: b5gc
+    nf: controller
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
+
+
+

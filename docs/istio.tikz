@@ -1,0 +1,23 @@
+\begin{tikzpicture}[every node/.style={font={\footnotesize}},mod/.style={inner sep=2pt, minimum width=1.4cm,draw,fill=white},pod/.style={minimum width=1.5cm, minimum height=1.3cm,draw,fill=black!10}]
+\node[rectangle,draw, minimum width=5.5cm, minimum height=0.8cm] at (0,0) (ctrl) {};
+\node[inner sep=2pt,above] at ([yshift=2pt]ctrl.south) {\tiny configuration, discovery, certificates};
+\node[above] at ([yshift=10pt]ctrl.south) {Mesh Controller};
+\node[pod] at ([xshift=-0.3cm,yshift=-1.3cm]ctrl.south) (pod1) {};
+\node[pod,left] at ([xshift=-0.2cm]pod1.west) (pod2) {};
+\node[pod,right] at ([xshift=0.8cm]pod1.east) (pod3) {};
+\foreach \i in {1,2,3} {
+\node[mod,below] at ([yshift=-2pt]pod\i.north) (sc\i) {sidecar};
+\node[mod,below] at ([yshift=-18pt]pod\i.north) (s\i) {service};
+\draw[<->](s\i) -- (sc\i);
+\node[above,inner sep=2pt] at ([xshift=-10pt]pod\i.south) {\tiny pod};
+\draw[<->] (ctrl.south) -- ([xshift=4pt]sc\i.north);)
+}
+\node[rotate=90,above] at ([xshift=-8pt]ctrl.west) {\textit{Control}};
+\node[rotate=90,above] at (ctrl.west) {\textit{Plane}};
+
+\node[rotate=90,above] at ([xshift=-8pt]pod2.west) {\textit{Data}};
+\node[rotate=90,above] at (pod2.west) {\textit{Plane}};
+\draw[<->, thick] (sc2.north) -- ++(0,8pt) -| (sc3.north);
+\draw[<-, thick] (sc1.north) -- ++(0,8pt);
+
+\end{tikzpicture}

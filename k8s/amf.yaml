@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amf-deployment
+  labels:
+    app: b5gc
+    nf: amf
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: b5gc
+      nf: amf
+  template:
+    metadata:
+      labels:
+        app: b5gc
+        nf: amf
+    spec:
+      containers:
+        - name: amf
+          image: b5gc-amf:latest
+          ports:
+            - containerPort: 8000
+

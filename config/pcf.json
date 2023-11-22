@@ -1,0 +1,23 @@
+{
+	"plmnId": {
+		"mcc": "208",
+		"mnc": "93"
+	},
+	"mesh": {
+		"sbi": {
+			"port": 9600
+		},
+		"registry": {
+			"agent": {
+				"port": 7600
+			},
+			"controller": {
+				"ip": "127.0.0.1"
+			}
+		},
+		"labels": {
+			"app":"b5gc",
+			"nf": "pcf"
+		}
+	}
+}
